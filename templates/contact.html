@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Contact {% endblock %}
+
+{% block content %}
+
+<h4 class="mx-5">Xabar yuborish uchun quyidagi formani to'ldiring:</h4>
+
+<div class="row">
+    <div class="col-6">
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form.media }}
+            {{ form | crispy }}
+            <div class="d-flex justify-content-end mb-5">
+                <button class="btn btn-outline-success" type="submit">Jo'natish</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-6">
+        <div class="d-flex justify-content-end mb-5">
+                <a class="btn btn-outline-primary" type="button" href="{% url 'messages' %}">Xabarlarni ko'rish</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

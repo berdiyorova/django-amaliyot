@@ -1,0 +1,8 @@
+.message-list {
+    list-style: decimal inside;
+}
+
+.line-order {
+    text-align: right;
+    display: list-item;
+}

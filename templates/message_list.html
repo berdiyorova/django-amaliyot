@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %} Messages {% endblock %}
+
+{% block content %}
+
+    <ol class="message-list">
+        <table class="table table-bordered table-striped">
+            <thead class="table-info text-center">
+                <tr>
+                    <th>№</th>
+                    <th>Ism</th>
+                    <th>Familiya</th>
+                    <th>Telefon</th>
+                    <th>Email</th>
+                    <th>Xabar</th>
+                    <th>Yuborilgan vaqti</th>
+                </tr>
+            </thead>
+            <tbody class="table-striped">
+                {% for message in messages %}
+                <tr>
+                    <td class="line-order"></td>
+                    <td>{{ message.first_name }}</td>
+                    <td>{{ message.last_name }}</td>
+                    <td>{{ message.phone }}</td>
+                    <td>{{ message.email }}</td>
+                    <td>{{ message.message_text }}</td>
+                    <td>{{ message.sent_time | date:"d-m-Y  H:i" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </ol>
+
+<div class="mt-5">
+    <a class="btn btn-outline-primary" type="button" href="{% url 'contact' %}">Ortga qaytish</a>
+</div>
+
+{% endblock %}
